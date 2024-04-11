@@ -1,0 +1,2 @@
+Results:
+[![Java CI with Gradle](https://github.com/KolyanGrom/selenide_test_delivery_1.0/actions/workflows/gradle.yml/badge.svg)](https://github.com/KolyanGrom/selenide_test_delivery_1.0/actions/workflows/gradle.yml)
