@@ -1,5 +1,11 @@
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
 
 import java.time.Duration;
 import java.time.LocalDate;
@@ -12,14 +18,25 @@ import static com.codeborne.selenide.Selenide.open;
 import static org.openqa.selenium.Keys.BACK_SPACE;
 
 
-public class TestCardDelivery {
 
+public class TestCardDelivery {
+    private WebDriver driver;
+    
     @BeforeEach
     void setup() {
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--headless");
+        driver = new ChromeDriver(options);
         open("http://localhost:9999/");
         LocalDate today = LocalDate.now();
     }
-
+    @AfterEach
+    void tearDown() {
+        driver.quit();
+        driver = null;
+    }
     @Test
     void sendFormWithValidCityNamePhoneNumberAndDefaultDate() {
 
