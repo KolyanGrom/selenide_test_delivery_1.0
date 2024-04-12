@@ -131,7 +131,7 @@ public class TestCardDelivery {
         $(withText("Я соглашаюсь с условиями обработки и использования моих персональных данных"))
                 .shouldBe(visible, Duration.ofSeconds(5));
     }
-    
+
     @Test
     void sendFormWithValidCityNamePhoneNumberAndInvalidDate() {
         String planningDate = generateDate(2);
